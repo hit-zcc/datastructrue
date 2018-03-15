@@ -173,7 +173,7 @@ class Red_Black_Tree():
             if direct == 'left':
                 parent_node.set_left_node (left_child)
             else:
-                parent_node.set_right_node ( left_child)
+                parent_node.set_right_node (left_child)
 
 #测试代码
 if __name__=="__main__":
