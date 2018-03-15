@@ -134,7 +134,8 @@ class Red_Black_Tree():
 #左旋操作
 
     def trun_left(self,node):
-        direct = node.get_parent_direct_to_me()
+        if node.parent is not None:
+            direct = node.get_parent_direct_to_me()
         parent_node = node.parent
 
         right_child = node.right_node
@@ -146,6 +147,7 @@ class Red_Black_Tree():
 
         if parent_node is None:
             self.root = right_child
+            right_child .parent = None
         else:
             if direct == 'left':
                 parent_node.set_left_node ( right_child)
@@ -153,9 +155,9 @@ class Red_Black_Tree():
                 parent_node.set_right_node (right_child)
 
 #右旋操作
-
     def trun_right(self,node):
-        direct = node.get_parent_direct_to_me()
+        if node.parent is not None:  
+            direct = node.get_parent_direct_to_me()
         parent_node = node.parent
 
         left_child = node.left_node
@@ -166,6 +168,7 @@ class Red_Black_Tree():
 
         if parent_node is None:
             self.root = left_child
+            left_child .parent = None
         else:
             if direct == 'left':
                 parent_node.set_left_node (left_child)
@@ -233,17 +236,15 @@ if __name__=="__main__":
     a = Red_Black_Tree_Node(15)
     s = Red_Black_Tree_Node(20)
 
-    tree = Red_Black_Tree(e)
+
+    tree = Red_Black_Tree(r)
     tree.insert(q)
     tree.insert(w)
     tree.insert(y)
-    tree.insert(r)
+    tree.insert(e)
     tree.insert(t)
     tree.insert(a)
     tree.insert(s)
-    print ('sss')
-
-
-
+    print ('over')
     pass
 
